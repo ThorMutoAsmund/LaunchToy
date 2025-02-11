@@ -1,0 +1,102 @@
+﻿ <!--Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"-->
+<Window x:Class="LaunchToy.Dialogs.EditAssignmentDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaunchToy.Dialogs"
+        mc:Ignorable="d"
+        Style="{StaticResource StandardWindow}"
+        Title="Edit Assigment" Height="347.667" Width="613" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Border Style="{StaticResource DialogTitleBorder}">
+            <Grid Style="{StaticResource DialogTitleBackground}">
+                <Label Content="Edit Assigment" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Style="{StaticResource DialogTitle}"/>
+            </Grid>
+        </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="119"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Height="auto" Width="auto" Margin="12,12,12,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="functionLabel" Grid.Row="0" Grid.Column="0" Content="Sample" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                <TextBox x:Name="sampleTextBox" Grid.Row="0" Grid.Column="1" Height="23" VerticalAlignment="Top" HorizontalAlignment="Stretch" IsReadOnly="True" Foreground="#FF909090" />
+                <Label Grid.Row="1" Grid.Column="0" Content="Message" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                <Grid Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="commandCodeComboBox" Grid.Column="0" Width="100">
+                        <ComboBoxItem>Note On</ComboBoxItem>
+                        <ComboBoxItem>Control Change</ComboBoxItem>
+                    </ComboBox>
+                    <Label Grid.Column="1" Content="Value" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                    <TextBox x:Name="midiValueTextBox" Grid.Column="2" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
+                </Grid>
+                <Label x:Name="playModeLabel" Grid.Row="2" Grid.Column="0" Content="Play mode" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                <Grid Grid.Row="2" Grid.Column="1" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"></ColumnDefinition>
+                        <ColumnDefinition Width="60"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox x:Name="playModeComboBox" Grid.Column="0" HorizontalAlignment="Stretch">
+                        <ComboBoxItem>Poly</ComboBoxItem>
+                        <ComboBoxItem>Mono</ComboBoxItem>
+                        <ComboBoxItem>Gated</ComboBoxItem>
+                        <ComboBoxItem>Looped</ComboBoxItem>
+                    </ComboBox>
+                    <Label x:Name="groupLabel" Grid.Column="1" Content="Group" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                    <ComboBox x:Name="groupComboBox" Grid.Column="2"  HorizontalAlignment="Stretch" SelectionChanged="groupComboBox_SelectionChanged">
+                    </ComboBox>
+                </Grid>
+                <Label x:Name="quantizeLabel" Grid.Row="3" Grid.Column="0" Content="Quantize" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                <ComboBox x:Name="quantizeComboBox" Grid.Row="3" Grid.Column="1" Width="100" HorizontalAlignment="Left">
+                    <ComboBoxItem>None</ComboBoxItem>
+                    <ComboBoxItem>Base</ComboBoxItem>
+                    <ComboBoxItem>Base/2</ComboBoxItem>
+                    <ComboBoxItem>Base/4</ComboBoxItem>
+                    <ComboBoxItem>Base/8</ComboBoxItem>
+                    <ComboBoxItem>Base/16</ComboBoxItem>
+                    <ComboBoxItem>Base/32</ComboBoxItem>
+                    <ComboBoxItem>Base/64</ComboBoxItem>
+                    <ComboBoxItem>Base/3</ComboBoxItem>
+                    <ComboBoxItem>Base/6</ComboBoxItem>
+                    <ComboBoxItem>Base/5</ComboBoxItem>
+                    <ComboBoxItem>Base*2</ComboBoxItem>
+                    <ComboBoxItem>Base*4</ComboBoxItem>
+                    <ComboBoxItem>Base*3</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <StackPanel Grid.Column="1" Height="auto" Orientation="Vertical" Margin="12,12,12,12">
+                <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left"  Width="95" IsDefault="true" Margin="0,0,0,10" />
+                <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left"  Width="95" IsCancel="True"  />                
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+
+    <!--<Grid Margin="0,1,0.333,-1.333">
+        <TextBox x:Name="sampleRateTextBox" HorizontalAlignment="Left" Height="23" Margin="89,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Sample rate" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="bpsTextBox" HorizontalAlignment="Left" Height="23" Margin="89,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="BPS" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="channelsTextBox" HorizontalAlignment="Left" Height="23" Margin="89,224,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="120" IsReadOnly="True" IsEnabled="false"/>
+        <Label Content="Channels" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
+        
+        <Button Content="OK" HorizontalAlignment="Left" Margin="628,390,0,0" VerticalAlignment="Top" Width="75" IsDefault="True"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="708,390,0,0" VerticalAlignment="Top" Width="75" IsCancel="True"/>
+    </Grid>-->
+</Window>

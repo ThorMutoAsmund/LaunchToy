@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\checkmark_transparent3.png" />
+    <None Remove="Images\CtrlButton.png" />
+    <None Remove="Images\PadButton.png" />
+    <None Remove="Images\power_symbol.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\checkmark_transparent3.png" />
+    <Resource Include="Images\CtrlButton.png" />
+    <Resource Include="Images\PadButton.png" />
+    <Resource Include="Images\power_symbol.png" />
+  </ItemGroup>
+
+</Project>

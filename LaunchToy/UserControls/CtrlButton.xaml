@@ -1,0 +1,33 @@
+﻿<local:NovationButton x:Class="LaunchToy.UserControls.CtrlButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LaunchToy.UserControls"
+             mc:Ignorable="d" 
+             BorderThickness="2"
+             PreviewDragOver="partCanvas_PreviewDragOver" DragEnter="partCanvas_DragEnter" Drop="partCanvas_Drop" DragLeave="partCanvas_DragLeave" AllowDrop="True"
+             d:DesignHeight="50" d:DesignWidth="50">
+    <Grid>
+        <Image Source="/Images/CtrlButton.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" MouseLeftButtonUp="Image_MouseLeftButtonUp">
+            <Image.ContextMenu>
+                <ContextMenu Opened="contextMenu_Opened">
+                    <MenuItem x:Name="editAssignmentMenu"  Header="Edit assignment" Click="partCanvas_EditAssignment"/>
+                    <Separator></Separator>
+                    <MenuItem x:Name="removeAssignmentMenu" Header="Remove assignment" Click="partCanvas_RemoveAssignment"/>
+                    <Separator></Separator>
+                    <MenuItem x:Name="createStopAssignmentMenu" Header="Create Stop-assignment" Click="partCanvas_CreateStopAssignment"/>
+                    <MenuItem x:Name="createQuantizeToggleAssignmentMenu" Header="Arm toggle" Click="partCanvas_CreateQuantizeToggleAssigment"/>
+                </ContextMenu>
+            </Image.ContextMenu>
+        </Image>
+        <TextBlock x:Name="labelTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Width="44" TextWrapping="Wrap" TextAlignment="Center" IsHitTestVisible="False" />
+        <Image x:Name="checkmarkImage" Source="/Images/checkmark_transparent3.png" Width="20" Height="20" Visibility="Hidden" IsHitTestVisible="False" />
+        <Rectangle IsHitTestVisible="False">
+            <Rectangle.Fill>
+                <SolidColorBrush x:Name="flashBrush" Color="Transparent"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </Grid>
+</local:NovationButton>

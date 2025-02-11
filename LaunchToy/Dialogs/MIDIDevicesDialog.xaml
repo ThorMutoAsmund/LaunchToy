@@ -1,0 +1,42 @@
+﻿ <!--Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"-->
+<Window x:Class="LaunchToy.Dialogs.MIDIDevicesDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LaunchToy.Dialogs"
+        mc:Ignorable="d"
+        Style="{StaticResource StandardWindow}"
+        Title="MIDI Devices" Height="347.667" Width="613" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Border Style="{StaticResource DialogTitleBorder}">
+            <Grid Style="{StaticResource DialogTitleBackground}">
+                <Label Content="MIDI Devices" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Style="{StaticResource DialogTitle}"/>
+            </Grid>
+        </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="119"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Height="auto" Width="auto" Margin="12,12,12,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="120"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="MIDI Inputs" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                <ListView Grid.Row="0" Grid.Column="1" x:Name="midiInputsListBox"></ListView>
+                <Label Grid.Row="1" Grid.Column="0" Content="MIDI Outputs" VerticalAlignment="Top" HorizontalAlignment="Right" />
+                <ListView Grid.Row="1" Grid.Column="1" x:Name="midiOutputsListBox"></ListView>
+            </Grid>
+            <StackPanel Grid.Column="1" Height="auto" Orientation="Vertical" Margin="12,12,12,12">
+                <Button x:Name="okButton" Content="OK" HorizontalAlignment="Left"  Width="95" IsDefault="true" Margin="0,0,0,10" />
+                <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left"  Width="95" IsCancel="True" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>
